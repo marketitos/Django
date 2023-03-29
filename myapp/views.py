@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Project, tareas
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import crearnuevatarea
 
 
 # Create your views here.
@@ -34,4 +35,19 @@ def task(request):
 
 
 def crear_tarea(request):
-    return render(request, 'Crear_tarear.html')
+    if request.method == 'GET':
+            return render(request, 'Crear_tarear.html', {
+            "form":crearnuevatarea()
+        })
+    else:
+         tareas.objects.create(titulo = request.POST['titulo'], descripcion = request.POST['descripcion'], project_id=1)
+         return redirect('/tareas')
+
+
+
+
+
+
+    
+
+
