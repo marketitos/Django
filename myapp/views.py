@@ -26,7 +26,12 @@ def projects(request):
         "projects": projects
     })
 
-def task(request, ):
-    tarea = tareas.objects.get(titulo=titulo)
-    return render(request, "tareas.html")
+def task(request):
+    tarea = tareas.objects.all()
+    return render(request, "tareas.html", {
+        "tareas":tarea
+    })
 
+
+def crear_tarea(request):
+    return render(request, 'Crear_tarear.html')
