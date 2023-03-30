@@ -1,0 +1,18 @@
+body{
+    background-color: black;
+    color: white;
+}
+
+.navbar{
+    background-color: bisque;
+
+}
+
+.navbar ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar ul li a{
+    color:gray;
+}

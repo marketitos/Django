@@ -8,5 +8,6 @@ urlpatterns= [
     path('projecto/', views.projects),
     path('tareas/', views.task),
     path('crear_tareas/', views.crear_tarea),
+    path('crear_proyecto/', views.crear_proyecto),
 
 ]

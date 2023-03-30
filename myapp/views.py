@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Project, tareas
 from django.shortcuts import render, redirect
-from .forms import crearnuevatarea
+from .forms import crearnuevatarea, crearproyecto
 
 
 # Create your views here.
@@ -42,6 +42,20 @@ def crear_tarea(request):
     else:
          tareas.objects.create(titulo = request.POST['titulo'], descripcion = request.POST['descripcion'], project_id=1)
          return redirect('/tareas')
+
+
+def crear_proyecto(request):
+    if request == 'GET':
+        return render(request, 'crear_proyectos.html' , {
+            "form":crearproyecto()
+        })
+    else: 
+        project = Project.objects.create(name=request.POST["name"])
+        print(project)
+        return render(request, 'crear_proyectos.html' , {
+            "form":crearproyecto()
+        })
+        
 
 
 
